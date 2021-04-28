@@ -299,17 +299,18 @@
 
       const submit = document.querySelector('.btn-kirim');
       const loading = document.querySelector('.btn-loading');
-      // const pesan = document.querySelector('.pesan');
+      const pesan = document.querySelector('.pesan');
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         submit.classList.toggle('d-none');
         loading.classList.toggle('d-none');
-        pesan.classList.toggle('d-none');
+        
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
           .then((response) => {
             submit.classList.toggle('d-none');
             loading.classList.toggle('d-none');
+            pesan.classList.toggle('d-none');
             console.log("Success!", response);
             //reset form
             form.reset();
